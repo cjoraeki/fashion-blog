@@ -2,21 +2,14 @@ package com.example.fashionblog.controller;
 
 import com.example.fashionblog.dto.AdminLoginDto;
 import com.example.fashionblog.dto.AdminRegisterDto;
-import com.example.fashionblog.exception.ResourceNotFoundException;
 import com.example.fashionblog.service.AdminService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.aspectj.lang.annotation.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -41,7 +34,6 @@ class AdminControllerTest {
     void toRegisterAdmin() throws Exception {
 
             AdminRegisterDto adminRegisterDto = new AdminRegisterDto();
-//            adminRegisterDto.setAdminId(10L);
             adminRegisterDto.setBusinessName("deledesigns");
             adminRegisterDto.setEmail("deledesigns@yahoo.com");
             adminRegisterDto.setPassword("0000");
@@ -53,9 +45,6 @@ class AdminControllerTest {
                     .andExpect(status().isCreated());
 
     }
-
-
-
 
 
     @Test
@@ -73,18 +62,4 @@ class AdminControllerTest {
 
     }
 
-//    @Test
-//    void toDeleteAdmin() throws Exception {
-//
-//            AdminLoginDto adminLoginDto = new AdminLoginDto();
-//            adminLoginDto.setEmail("deledesigns@yahoo.com");
-//            adminLoginDto.setPassword("0000");
-//
-//            String requestBody = objectMapper.writeValueAsString(adminLoginDto);
-//            mockMvc.perform(delete("/admin/delete",200)
-//                            .contentType("application/json")
-//                            .content(requestBody))
-//                    .andExpect(status().isOk());
-//
-//    }
 }
