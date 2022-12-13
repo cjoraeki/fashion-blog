@@ -46,7 +46,7 @@ class ClientControllerTest {
             clientSignUpDto.setPassword("1234");
 
             String requestBody = objectMapper.writeValueAsString(clientSignUpDto);
-            mockMvc.perform(post("/client/register",201)
+            mockMvc.perform(post("/client/register")
                             .contentType("application/json")
                             .content(requestBody))
                     .andExpect(status().isCreated());

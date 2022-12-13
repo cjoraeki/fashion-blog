@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class AdminRegisterDto {
 
-    private Long adminId;
+//    private Long adminId;
 
     @NotNull(message = "Business name cannot be missing or empty")
     @Size(min = 2, message = "Business name cannot be less than 2 characters")

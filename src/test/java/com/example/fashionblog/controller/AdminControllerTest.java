@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -40,13 +41,13 @@ class AdminControllerTest {
     void toRegisterAdmin() throws Exception {
 
             AdminRegisterDto adminRegisterDto = new AdminRegisterDto();
-            adminRegisterDto.setAdminId(1L);
+//            adminRegisterDto.setAdminId(10L);
             adminRegisterDto.setBusinessName("deledesigns");
             adminRegisterDto.setEmail("deledesigns@yahoo.com");
             adminRegisterDto.setPassword("0000");
 
             String requestBody = objectMapper.writeValueAsString(adminRegisterDto);
-            mockMvc.perform(post("/admin/register",201)
+            mockMvc.perform(post("/admins/register")
                             .contentType("application/json")
                             .content(requestBody))
                     .andExpect(status().isCreated());
@@ -65,25 +66,25 @@ class AdminControllerTest {
             adminLoginDto.setPassword("0000");
 
             String requestBody = objectMapper.writeValueAsString(adminLoginDto);
-            mockMvc.perform(post("/admin/login",202)
+            mockMvc.perform(post("/admins/login",202)
                             .contentType("application/json")
                             .content(requestBody))
                     .andExpect(status().isAccepted());
 
     }
 
-    @Test
-    void toDeleteAdmin() throws Exception {
-
-            AdminLoginDto adminLoginDto = new AdminLoginDto();
-            adminLoginDto.setEmail("deledesigns@yahoo.com");
-            adminLoginDto.setPassword("0000");
-
-            String requestBody = objectMapper.writeValueAsString(adminLoginDto);
-            mockMvc.perform(delete("/admin/delete",200)
-                            .contentType("application/json")
-                            .content(requestBody))
-                    .andExpect(status().isOk());
-
-    }
+//    @Test
+//    void toDeleteAdmin() throws Exception {
+//
+//            AdminLoginDto adminLoginDto = new AdminLoginDto();
+//            adminLoginDto.setEmail("deledesigns@yahoo.com");
+//            adminLoginDto.setPassword("0000");
+//
+//            String requestBody = objectMapper.writeValueAsString(adminLoginDto);
+//            mockMvc.perform(delete("/admin/delete",200)
+//                            .contentType("application/json")
+//                            .content(requestBody))
+//                    .andExpect(status().isOk());
+//
+//    }
 }
