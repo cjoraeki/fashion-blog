@@ -41,7 +41,7 @@ public class PostController {
     @DeleteMapping("/delete")
     public ResponseEntity<String> toDeleteAPost(@Valid @RequestBody PostDto postDto){
         postService.deletePost(postDto);
-        return new ResponseEntity<>("Post deleted", HttpStatus.OK);
+        return new ResponseEntity<>("Post deleted successfully", HttpStatus.OK);
     }
 
     @RequestMapping("/search/{searchTerm}")
