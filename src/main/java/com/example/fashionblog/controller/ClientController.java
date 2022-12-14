@@ -31,6 +31,6 @@ public class ClientController {
     @DeleteMapping("/delete")
     public ResponseEntity<String> toDeleteAdmin(@RequestBody ClientResponseDto clientResponseDto){
         clientService.deleteClientById(clientResponseDto);
-        return new ResponseEntity<>("Client deleted", HttpStatus.OK);
+        return new ResponseEntity<>("Client deleted successfully", HttpStatus.OK);
     }
 }
