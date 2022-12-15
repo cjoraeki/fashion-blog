@@ -3,8 +3,6 @@ package com.example.fashionblog.service;
 
 import com.example.fashionblog.dto.PostDto;
 import com.example.fashionblog.entity.Post;
-import org.apache.catalina.LifecycleState;
-
 import java.util.List;
 
 public interface PostService {
