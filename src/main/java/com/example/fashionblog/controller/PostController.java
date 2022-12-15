@@ -29,7 +29,7 @@ public class PostController {
     @PutMapping("/edit")
     public ResponseEntity<String> toEditAPost(@Valid @RequestBody PostDto postDto){
         postService.editPost(postDto);
-        return new ResponseEntity<>("Post edited", HttpStatus.OK);
+        return new ResponseEntity<>("Post edited successfully", HttpStatus.OK);
     }
 
     @GetMapping("/all")
